@@ -2,6 +2,8 @@
 
 A full-stack web application for managing organizational resources and bookings. Users can browse available resources (rooms, equipment, vehicles) and submit booking requests, while administrators can manage resources and approve/reject bookings.
 
+**Live Demo:** [https://ermsfrontend.vercel.app](https://ermsfrontend.vercel.app)
+
 ## Features
 
 ### User Features
@@ -263,6 +265,33 @@ http://localhost:3000/api-docs
 | `npm run build` | Build for production |
 | `npm run preview` | Preview production build |
 | `npm run lint` | Run ESLint |
+
+## Deployment
+
+The app is deployed on **Vercel** as two separate projects from the same repo:
+
+- **Frontend** — Static SPA (root directory: `frontend/`)
+- **Backend** — Serverless Express API (root directory: `backend/`)
+- **Database** — PostgreSQL hosted on [Neon](https://neon.tech)
+
+### Deployment Environment Variables
+
+**Backend (Vercel):**
+| Variable | Description |
+|----------|-------------|
+| `DATABASE_URL` | PostgreSQL connection string |
+| `JWT_ACCESS_SECRET` | Secret for signing access tokens |
+| `JWT_REFRESH_SECRET` | Secret for signing refresh tokens |
+| `JWT_ACCESS_EXPIRY` | Access token expiry (e.g. `15m`) |
+| `JWT_REFRESH_EXPIRY` | Refresh token expiry (e.g. `7d`) |
+| `FRONTEND_URL` | Frontend URL for CORS |
+| `BCRYPT_ROUNDS` | Password hashing rounds |
+| `NODE_ENV` | `production` |
+
+**Frontend (Vercel):**
+| Variable | Description |
+|----------|-------------|
+| `VITE_API_URL` | Backend API URL (e.g. `https://ermsbackend.vercel.app/api`) |
 
 ## License
 
