@@ -2,13 +2,14 @@
   "name": "erms-backend",
   "version": "1.0.0",
   "description": "Event & Resource Management System - Backend API",
+  "type": "module",
   "main": "dist/server.js",
   "prisma": {
     "seed": "tsx prisma/seed.ts"
   },
   "scripts": {
     "dev": "tsx watch src/server.ts",
-    "build": "tsc",
+    "build": "prisma generate && tsc",
     "start": "node dist/server.js",
     "lint": "eslint src --ext .ts",
     "lint:fix": "eslint src --ext .ts --fix",
